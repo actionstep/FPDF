@@ -1460,10 +1460,10 @@ protected function _out($s)
 	// Add a line to the current page
 	if($this->state==2)
 		$this->pages[$this->page] .= $s."\n";
+	elseif($this->state==1)
+		$this->_put($s);
 	elseif($this->state==0)
 		$this->Error('No page has been added yet');
-	elseif($this->state==1)
-		$this->Error('Invalid call');
 	elseif($this->state==3)
 		$this->Error('The document is closed');
 }
